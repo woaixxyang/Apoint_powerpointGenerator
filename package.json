@@ -1,0 +1,39 @@
+{
+  "name": "apoint",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:server": "node --env-file=.env.local server.js",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@google/genai": "^1.35.0",
+    "express": "^4.21.2",
+    "jspdf": "^4.2.0",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.562.0",
+    "pdfjs-dist": "^5.7.284",
+    "pptxgenjs": "^4.0.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "svg2pdf.js": "^2.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.0.0",
+    "happy-dom": "^20.9.0",
+    "husky": "^9.1.7",
+    "typescript": "~5.8.2",
+    "vite": "^6.2.0",
+    "vitest": "^4.1.6"
+  }
+}

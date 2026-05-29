@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.vite/
+.env.local
+.env.*.local
+*.local
+.DS_Store
+
+# 匯出 PDF 殘留（手動或測試觸發的下載檔）
+Presentation_*.pdf

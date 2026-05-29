@@ -1,0 +1,4 @@
+{
+  "primary": "gemini-3-flash-preview",
+  "fallback": "gemini-3-pro-preview"
+}

@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoint</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config = { corePlugins: { preflight: true } }</script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <style>
+        body {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+        }
+        /* Fix for SVG Preview Scaling */
+        .slide-svg svg {
+            width: 100% !important;
+            height: 100% !important;
+            display: block;
+        }
+        .slide-svg text {
+            font-family: 'Montserrat', 'Noto Sans TC', sans-serif;
+        }
+        /* 隱藏 Tailwind CDN 開發模式品牌橫條 */
+        body > div:not(#root) {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

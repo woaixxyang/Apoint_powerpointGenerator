@@ -1,0 +1,75 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buildDesignSystemPrompt — public edition > 應產出穩定的 prompt（public edition snapshot） 1`] = `
+"### SVG ARCHITECTURE FOR POWERPOINT
+
+1. **CANVAS**: 960x540, viewBox="0 0 960 540". Absolute coordinates. Use \`transform="translate(x,y)"\` on <g> groups.
+
+2. **ALLOWED ELEMENTS ONLY**: \`<svg>\`, \`<g>\`, \`<rect>\`, \`<circle>\`, \`<ellipse>\`, \`<line>\`, \`<polyline>\`, \`<polygon>\`, \`<path>\`, \`<text>\`, \`<tspan>\`. NO other tags.
+
+3. **STYLING (Attributes Only — CRITICAL)**
+   - PROHIBITED tags: \`<defs>\`, \`<linearGradient>\`, \`<radialGradient>\`, \`<filter>\`, \`<clipPath>\`, \`<mask>\`, \`<pattern>\`, \`<use>\`, \`<symbol>\`, \`<image>\`, \`<foreignObject>\`, \`<style>\`, \`<animate>\`, \`<a>\`.
+   - PROHIBITED attributes: \`style\`, \`class\`, \`dominant-baseline\`, \`alignment-baseline\`, \`clip-path\`, \`mask\`, \`filter\`.
+   - Use inline attributes only: \`fill\`, \`stroke\`, \`stroke-width\`, \`font-size\`, \`opacity\`, \`rx\`.
+   - NO gradients — flat solid colors only.
+
+4. **TEXT**: Manually offset Y for font height (font-size 24 → center at y+12). Split multi-line text into separate <text> elements.
+
+### MANDATORY TITLE & SUBTITLE FORMAT (every slide must follow this exactly)
+注意：SVG font-size 為 SVG 單位（96 DPI），匯出 PPT 時會 ×0.75 換算為 pt。下方範例已使用正確的 SVG 數值。
+\`\`\`xml
+<!-- 固定大標題：SVG font-size=29（匯出後 PPT 22pt）粗體深灰，位置 (40, 35) -->
+<g transform="translate(40, 35)">
+  <text font-family="Montserrat, 'Noto Sans TC', sans-serif" font-size="29" font-weight="bold" fill="#333333" y="29">頁面標題文字</text>
+</g>
+<!-- 橘色副標題：SVG font-size=21（匯出後 PPT 16pt）粗體橘色，緊接大標題下方（非必要，但若使用必須遵守格式） -->
+<g transform="translate(40, 75)">
+  <text font-family="Montserrat, 'Noto Sans TC', sans-serif" font-size="21" font-weight="bold" fill="#FF6B00" y="21">副標題 / Key Insight 摘要句</text>
+</g>
+\`\`\`
+
+6. **APOINT BRAND COLOR PALETTE (嚴格遵守)**
+   - **Accent Orange**: #FF6B00 (橘色強調色 — 用於重要數字、色塊標籤、重點標示)
+   - **Accent Blue**: #00AEEF (藍色強調色 — 用於輔助色塊、次要強調)
+   - **Accent Green**: #00C853 (綠色強調色 — 正面數據、成長指標)
+   - **Danger/Negative**: #DC2626 (紅色 — 負面數據、下降指標)
+   - **Title Text**: #333333 (深灰 — 標題)
+   - **Body Text**: #333333 (深灰 — 正文內容)
+   - **Secondary Text**: #666666 (中灰 — 說明文字、備註)
+   - **Light Text**: #999999 (淺灰 — 次要備註)
+   - **Background**: #FFFFFF (白色)
+   - **Card Background**: #F8F9FA (淺灰底 — 卡片/區塊底色)
+   - **Border/Divider**: #E0E0E0 (分隔線、卡片邊框)
+   - **Brand Bar**: #9E9E9E (品牌橫條底色 — 僅用於底部品牌區域)
+   - 重要：標題和正文主要使用灰色系 (#333333, #666666)，橘/藍/綠僅作為強調色點綴使用
+
+6b. **APOINT 固定大標題規範 (MANDATORY — 每頁必須遵守)**
+   - **位置**: 固定在頁面左上角, x="40", y="35" (SVG 座標)
+   - **字體大小**: font-size="22" (SVG 單位；匯出後即 PPT 17pt，固定不可更改)
+   - **字重**: font-weight="bold"
+   - **顏色**: fill="#333333" (深灰色)
+   - **字體**: font-family="Montserrat, 'Noto Sans TC', sans-serif" (Montserrat 用於英文和數字, Noto Sans TC 用於中文)
+   - **對齊**: 左對齊, 不居中
+   - **重要**: 大標題位置和大小是品牌規範，不隨視覺風格改變。每一頁的大標題都必須出現在相同位置。
+
+6c. **APOINT 副標題規範 (非必要，但若使用則必須遵守)**
+   - **是否出現**: 副標題非每頁必須。若原始內容無明確副標題或排版空間不足，可省略。
+   - **位置**: 緊接大標題下方
+   - **字體大小**: font-size="16" (SVG 單位；匯出後即 PPT 12pt，固定不可更改)
+   - **字重**: font-weight="bold"
+   - **顏色**: fill="#FF6B00" (橘色粗體)
+   - **字體**: font-family="Montserrat, 'Noto Sans TC', sans-serif"
+   - **用途**: 緊接標題下方, 用於摘要或關鍵洞察
+   - **重要**: 副標題可省略，但一旦使用，其顏色、字型、大小必須遵守品牌規範，不可自行更改。
+
+7. **VISUAL STYLE — 設計硬規則 (MANDATORY)**
+   - **品牌色彩與字型**: 所有配色必須使用品牌識別中定義的色彩色板，字型必須使用品牌規範字型，不可自行替換。
+   - **摘要先行**: 當頁面含有圖表或數據表格時，垂直排列順序必須為：大標題 → insight 摘要句 → 圖表/表格。禁止圖表在上、insight 在下。
+   - **內容深度分析**: 深入分析原始內容的結構、邏輯脈絡與本頁 key message，據此決定最適當的佈局與呈現方式（圖表、卡片、列表、文字區塊等），並在視覺上強調與 key message 最相關的重點資訊。
+   - **不可遮擋與元素間距**: 各區塊內容不可互相重疊或遮擋，所有元素之間必須有清晰的邊界和間距。所有內容必須在底部品牌橫條之上保留至少 10px 安全間距。
+
+8. **VISUAL STYLE — 預設傾向 (可依內容調整)**
+   - **視覺邏輯遞進**: 深入分析內容結構，遵循從上到下、從左到右的視覺閱讀邏輯，遞進展開原有的內容層次。
+   - **內文字體下限**: 所有內文字體 font-size ≥ 16（SVG 單位，匯出後為 PPT 12pt），確保可讀性。
+   - **小標題大小上限**: 區塊內的小標題 / section header 字體 font-size ≤ 27（SVG 單位，匯出後為 PPT 20pt），避免與頁面左上角的大標題混淆。"
+`;

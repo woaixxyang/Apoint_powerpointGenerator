@@ -1,0 +1,7 @@
+{
+  "name": "Apoint",
+  "description": "A smart presentation tool that transforms your text and template images into consistent, professionally designed slides exportable as SVG or PPTX.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
